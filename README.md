@@ -1,3 +1,4 @@
+
 # Node.js ToDo list
 
   
@@ -37,11 +38,8 @@ If you are using linux use the command
 
 To run the app run the command,
 
-  
-
+    npm install
     npm run dev
-
-  
 
 ## Contributors
 
