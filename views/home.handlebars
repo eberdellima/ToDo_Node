@@ -1,0 +1,42 @@
+<div>
+    <div>
+        <form action="/" method="POST">
+            <input type="text" name="new-todo" id="new-todo" placeholder="Add new to do..."/>
+            <button type="submit">Add</button>
+        </form>    
+    </div>
+    <div class="items-container">
+        <div class="todo-items">
+            <p>To do: </p>
+            <ul>
+                {{#each notDoneItems}}
+                <li id={{id}}>
+                    <form action="/{{id}}?_method=PATCH" method="POST">
+                        <p>{{text}}</p>
+                        <button class="delete-button" type="submit"><i class="fa fa-check"></i></button> 
+                    </form>
+                </li>
+                {{/each}}
+                {{#unless notDoneItems.length}}
+                    <p class="empty-list" >No task left...</p>
+                {{/unless}}
+            </ul>
+        </div>
+        <div class="done-items">
+            <p>Done: </p>
+            <ul>
+                {{#each doneItems}}
+                <li id={{id}}>
+                    <form action="/{{id}}?_method=DELETE" method="POST">
+                        <p class="done">{{text}}</p>
+                        <button class="remove-button" type="submit"><i class="fa fa-trash"></i></button> 
+                    </form>
+                </li>
+                {{/each}}
+                {{#unless doneItems.length}}
+                    <p class="empty-list" >List is clear...</p>
+                {{/unless}}
+            </ul>
+        </div>
+    </div>
+</div>

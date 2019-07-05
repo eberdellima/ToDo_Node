@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    padding: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    color: #787a80;
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+  
+  input {
+    height: 40px;
+    width: 50%;
+    border: none;
+    border-bottom: 2px #fd5f00 solid;
+    background: none;
+    font-size: 1.5rem;
+    color: #787a80;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  button {
+    width: 25%;
+    height: 45px;
+    border: none;
+    margin-left: 10px;
+    font-size: 25px;
+    background: #fd5f00;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  .delete-button {
+    height: 100%;
+    width: 20%;
+    background-color: green;
+  }
+
+  .remove-button {
+    height: 100%;
+    width: 20%;
+    background-color: red;
+  }
+  
+  ul {
+    list-style: none;
+    text-align: left;
+    padding: 15px;
+    padding-bottom: 10px;
+    background: #fd5f00;
+    border-radius: 5px;
+  }
+  
+  li {
+    padding: 15px;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    background: #f2f3f2;
+    border-radius: 5px;
+    overflow-wrap: break-word;
+  }
+
+  li > form {
+    width: 100%;
+    height: 100%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  form > p {
+      margin: 0;
+      padding: 0;
+      width: 80%;
+  }
+
+  .done {
+    text-decoration-line: line-through;
+  }
+
+  .items-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .todo-items, .done-items {
+    width: 48%;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .empty-list {
+    color: #ffffff;
+    margin-block-start: 0.6em;
+    margin-block-end: 0.5em
+  }
+  
+  @media only screen and (min-width: 300px) {
+    body {
+      width: 80%;
+    }
+  
+    input {
+      width: 100%
+    }
+  
+    button {
+      width: 100%;
+      margin-top: 15px;
+      margin-left: 0;
+    }
+
+    form {
+        flex-direction: column
+    }
+
+    form > p {
+        width: 100%;
+        padding-bottom: 5px;
+    }
+
+    .delete-button, .remove-button {
+        width: 30%;
+    }
+  }
+  
+  @media only screen and (min-width: 640px) {
+    body {
+      width: 80%;
+    }
+  
+    input {
+      width: 100%;
+    }
+  
+    button {
+      width: 30%;
+      margin-top: 10px;
+      margin-left: 0;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    form > p {
+        width: 100%;
+        padding-bottom: 5px;
+    }
+
+    .delete-button, .remove-button { 
+        margin: 0;
+        width: 30%;
+    }
+  }
+
+  @media only screen and (min-width: 1020px) {
+      body {
+          width: 60%
+      }
+
+      button {
+        width: 30%;
+        margin-left: 10px;
+        margin-top: 0;
+      }
+
+      .delete-button {
+          width: 20%;
+      }
+
+      form {
+          flex-direction: row
+      }
+
+      form > p {
+          width: 80%;
+      }
+  }
+
+  @media only screen and (min-width: 1540px) {
+    .delete-button, .remove-button {
+        width: 12%;
+    }
+
+    form > p {
+        width: 88%;
+    }
+  }

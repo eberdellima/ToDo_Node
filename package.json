@@ -1,0 +1,21 @@
+{
+  "name": "todo-node",
+  "version": "1.0.0",
+  "description": "A simple 'To do list' app built with node",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bhfreagra",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.6.2",
+    "nodemon": "^1.19.1"
+  }
+}
