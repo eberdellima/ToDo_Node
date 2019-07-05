@@ -29,7 +29,7 @@ If you are using linux use the command
 
   
 
-sudo service mongod start
+    sudo service mongod start
 
   
 
@@ -39,7 +39,7 @@ To run the app run the command,
 
   
 
-npm run dev
+    npm run dev
 
   
 
