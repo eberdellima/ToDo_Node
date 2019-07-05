@@ -16,11 +16,10 @@ Before you start using the application, you need to set up your personal configu
 
 The configurations for the app are located at the .env folder located in the root directory (If not included create the .env file). You must provide a port number and the url for the Mongo database
 
-Example readme.md
->    PORT=8080
->    DB_URL='mongodb://localhost:27017/todo_node'
+Example .env
 
-  
+    PORT=8080
+    DB_URL='mongodb://localhost:27017/todo_node'
 
 ## Before running
 
