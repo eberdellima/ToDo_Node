@@ -22,7 +22,7 @@ app.use(bodyParser.json())
 
 // Setting up db connection
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true }, (err) => {
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true  }, (err) => {
     if(err){
         console.log(err)
     } else {
