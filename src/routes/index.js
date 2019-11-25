@@ -1,18 +1,19 @@
 const TodoItems = require('../models/todo.model')
 const express = require('express')
 const router = express.Router()
+const { logError } = require('zippy-logger')
 
 router.get('/', async (req, res) => {
     try{
         const items = await TodoItems.find({is_deleted: false}).catch( err => { 
-            console.log(err) 
+            logError({message: err, path: "get: /"})
             res.status(500).send('An error occurred...')
         })
         const doneItems = items.filter(item => item.is_done)
         const notDoneItems = items.filter(item => !item.is_done)
         res.render('home', { doneItems: doneItems, notDoneItems: notDoneItems})
     } catch(err) {
-        console.log(err)
+        logError({message: err, path: "/"})
         res.status(500).send('An error occurred...')
     }
 })
@@ -29,7 +30,7 @@ router.post('/', async (req, res) => {
     })
     try {
         const savedItem = await newItem.save().catch( err => {
-            console.log(err)
+            logError({message: err, path: "post: /"})
             res.status(500).send('An error occurred...')
         })
         if(!savedItem){
@@ -37,7 +38,7 @@ router.post('/', async (req, res) => {
         }
         res.redirect('/')
     } catch(err) {
-        console.log(err)
+        logError({message: err, path: "post: /"})
         res.status(500).send('An error occurred...')
     }
 })
@@ -46,7 +47,7 @@ router.patch('/:id', async (req, res) => {
     const id = req.params.id
     try{
         const item = await TodoItems.findOne({_id: id, is_deleted: false}).catch( err => { 
-            console.log(err) 
+            logError({message: err, path: "patch: /:id"})
             res.status(500).send('An error occurred...')
         })
         if(!item) {
@@ -54,7 +55,7 @@ router.patch('/:id', async (req, res) => {
         }
         item.is_done = true
         const savedItem = await item.save().catch( err => { 
-            console.log(err) 
+            logError({message: err, path: "patch: /:id"})
             res.status(500).send('An error occurred...')
         })
         if(!savedItem) {
@@ -62,7 +63,7 @@ router.patch('/:id', async (req, res) => {
         }
         res.redirect('/')
     } catch(err) {
-        console.log(err)
+        logError({message: err, path: "patch: /:id"})
         res.status(500).send('An error occurred...')
     }
 })
@@ -71,7 +72,7 @@ router.delete('/:id', async (req, res) => {
     const id = req.params.id
     try{
         const item = await TodoItems.findOne({_id: id, is_deleted: false}).catch( err => { 
-            console.log(err) 
+            logError({message: err, path: "delete: /:id"})
             res.status(500).send('An error occurred...')
         })
         if(!item) {
@@ -79,7 +80,7 @@ router.delete('/:id', async (req, res) => {
         }
         item.is_deleted = true
         const savedItem = await item.save().catch( err => { 
-            console.log(err) 
+            logError({message: err, path: "delete: /:id"})
             res.status(500).send('An error occurred...')
         })
         if(!savedItem) {
@@ -87,7 +88,7 @@ router.delete('/:id', async (req, res) => {
         }
         res.redirect('/')
     } catch(err) {
-        console.log(err)
+        logError({message: err, path: "delete: /:id"})
         res.status(500).send('An error occurred...')
     }
 })
